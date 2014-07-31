@@ -17,33 +17,38 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.sk89q.worldedit.history.change;
+package com.sk89q.worldedit.session.history;
 
-import com.sk89q.worldedit.WorldEditException;
-import com.sk89q.worldedit.history.changeset.ChangeSet;
-import com.sk89q.worldedit.history.UndoContext;
+import com.sk89q.worldedit.extent.Extent;
+import com.sk89q.worldedit.session.history.change.BlockChange;
+
+import javax.annotation.Nullable;
 
 /**
- * Describes a change that can be undone or re-applied.
+ * Provides context for undo and redo operations.
+ *
+ * <p>For example, {@link BlockChange}s take the {@link Extent} from the
+ * context rather than store a reference to one.</p>
  */
-public interface Change {
+public class UndoContext {
+
+    private Extent extent;
 
     /**
-     * Perform an undo. This method may not be available if the object
-     * was returned from {@link ChangeSet#forwardIterator()}.
+     * Get the extent set on this context.
      *
-     * @param context a context for undo
-     * @throws WorldEditException on an error
+     * @return an extent or null
      */
-    void undo(UndoContext context) throws WorldEditException;
+    public @Nullable Extent getExtent() {
+        return extent;
+    }
 
     /**
-     * Perform an redo. This method may not be available if the object
-     * was returned from {@link ChangeSet#backwardIterator()} ()}.
+     * Set the extent on this context.
      *
-     * @param context a context for redo
-     * @throws WorldEditException on an error
+     * @param extent an extent or null
      */
-    void redo(UndoContext context) throws WorldEditException;
-
+    public void setExtent(@Nullable Extent extent) {
+        this.extent = extent;
+    }
 }

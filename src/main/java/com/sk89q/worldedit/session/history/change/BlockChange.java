@@ -17,13 +17,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.sk89q.worldedit.history.change;
+package com.sk89q.worldedit.session.history.change;
 
 import com.sk89q.worldedit.BlockVector;
 import com.sk89q.worldedit.WorldEditException;
 import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.extent.Extent;
-import com.sk89q.worldedit.history.UndoContext;
+import com.sk89q.worldedit.session.history.UndoContext;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

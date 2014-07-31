@@ -17,38 +17,33 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.sk89q.worldedit.history;
+package com.sk89q.worldedit.session.history.change;
 
-import com.sk89q.worldedit.extent.Extent;
-import com.sk89q.worldedit.history.change.BlockChange;
-
-import javax.annotation.Nullable;
+import com.sk89q.worldedit.WorldEditException;
+import com.sk89q.worldedit.session.history.changeset.ChangeSet;
+import com.sk89q.worldedit.session.history.UndoContext;
 
 /**
- * Provides context for undo and redo operations.
- *
- * <p>For example, {@link BlockChange}s take the {@link Extent} from the
- * context rather than store a reference to one.</p>
+ * Describes a change that can be undone or re-applied.
  */
-public class UndoContext {
-
-    private Extent extent;
+public interface Change {
 
     /**
-     * Get the extent set on this context.
+     * Perform an undo. This method may not be available if the object
+     * was returned from {@link ChangeSet#forwardIterator()}.
      *
-     * @return an extent or null
+     * @param context a context for undo
+     * @throws WorldEditException on an error
      */
-    public @Nullable Extent getExtent() {
-        return extent;
-    }
+    void undo(UndoContext context) throws WorldEditException;
 
     /**
-     * Set the extent on this context.
+     * Perform an redo. This method may not be available if the object
+     * was returned from {@link ChangeSet#backwardIterator()} ()}.
      *
-     * @param extent an extent or null
+     * @param context a context for redo
+     * @throws WorldEditException on an error
      */
-    public void setExtent(@Nullable Extent extent) {
-        this.extent = extent;
-    }
+    void redo(UndoContext context) throws WorldEditException;
+
 }

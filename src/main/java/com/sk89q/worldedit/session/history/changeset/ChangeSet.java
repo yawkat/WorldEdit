@@ -17,9 +17,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.sk89q.worldedit.history.changeset;
+package com.sk89q.worldedit.session.history.changeset;
 
-import com.sk89q.worldedit.history.change.Change;
+import com.sk89q.worldedit.session.history.change.Change;
 
 import java.util.Iterator;
 

@@ -24,10 +24,10 @@ import com.sk89q.worldedit.WorldEditException;
 import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.entity.BaseEntity;
 import com.sk89q.worldedit.entity.Entity;
-import com.sk89q.worldedit.history.change.BlockChange;
-import com.sk89q.worldedit.history.change.EntityCreate;
-import com.sk89q.worldedit.history.change.EntityRemove;
-import com.sk89q.worldedit.history.changeset.ChangeSet;
+import com.sk89q.worldedit.session.history.change.BlockChange;
+import com.sk89q.worldedit.session.history.change.EntityCreate;
+import com.sk89q.worldedit.session.history.change.EntityRemove;
+import com.sk89q.worldedit.session.history.changeset.ChangeSet;
 import com.sk89q.worldedit.regions.Region;
 import com.sk89q.worldedit.util.Location;
 

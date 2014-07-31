@@ -20,9 +20,9 @@
 package com.sk89q.worldedit.function.operation;
 
 import com.sk89q.worldedit.WorldEditException;
-import com.sk89q.worldedit.history.change.Change;
-import com.sk89q.worldedit.history.changeset.ChangeSet;
-import com.sk89q.worldedit.history.UndoContext;
+import com.sk89q.worldedit.session.history.change.Change;
+import com.sk89q.worldedit.session.history.changeset.ChangeSet;
+import com.sk89q.worldedit.session.history.UndoContext;
 import com.sk89q.worldedit.util.task.progress.Progress;
 
 import java.util.Iterator;

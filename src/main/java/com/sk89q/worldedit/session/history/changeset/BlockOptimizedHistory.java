@@ -17,14 +17,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.sk89q.worldedit.history.changeset;
+package com.sk89q.worldedit.session.history.changeset;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Iterators;
 import com.sk89q.worldedit.BlockVector;
 import com.sk89q.worldedit.blocks.BaseBlock;
-import com.sk89q.worldedit.history.change.BlockChange;
-import com.sk89q.worldedit.history.change.Change;
+import com.sk89q.worldedit.session.history.change.BlockChange;
+import com.sk89q.worldedit.session.history.change.Change;
 import com.sk89q.worldedit.util.collection.TupleArrayList;
 
 import java.util.ArrayList;
