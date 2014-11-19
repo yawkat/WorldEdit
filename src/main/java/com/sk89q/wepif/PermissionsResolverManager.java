@@ -124,6 +124,7 @@ public class PermissionsResolverManager implements PermissionsResolver {
         if (permissionResolver == null) {
             permissionResolver = new ConfigurationPermissionsResolver(config);
         }
+        cacheResolver();
         permissionResolver.load();
         logger.info("WEPIF: " + permissionResolver.getDetectionMessage());
     }
@@ -134,7 +135,14 @@ public class PermissionsResolverManager implements PermissionsResolver {
         }
 
         permissionResolver = new PluginPermissionsResolver((PermissionsProvider) plugin, plugin);
+        cacheResolver();
         logger.info("WEPIF: " + permissionResolver.getDetectionMessage());
+    }
+
+    private void cacheResolver() {
+        if (!(permissionResolver instanceof CachingPermissionsResolver)) {
+            permissionResolver = new CachingPermissionsResolver(permissionResolver);
+        }
     }
 
     public void load() {
