@@ -25,9 +25,9 @@ import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.blocks.TileEntityBlock;
 import com.sk89q.worldedit.data.DataException;
 import com.sk89q.worldedit.foundation.Block;
-import net.minecraft.server.v1_7_R3.*;
+import net.minecraft.server.v1_7_R4.*;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_7_R3.CraftWorld;
+import org.bukkit.craftbukkit.v1_7_R4.CraftWorld;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -51,7 +51,7 @@ public class DefaultNmsBlock extends NmsBlock {
     static {
         Field field;
         try {
-            field = net.minecraft.server.v1_7_R3.Block.class.getDeclaredField("isTileEntity");
+            field = net.minecraft.server.v1_7_R4.Block.class.getDeclaredField("isTileEntity");
             field.setAccessible(true);
         } catch (NoSuchFieldException e) {
             // logger.severe("Could not find NMS block tile entity field!");
@@ -239,7 +239,7 @@ public class DefaultNmsBlock extends NmsBlock {
     }
 
     public static boolean hasTileEntity(int type) {
-        net.minecraft.server.v1_7_R3.Block nmsBlock = getNmsBlock(type);
+        net.minecraft.server.v1_7_R4.Block nmsBlock = getNmsBlock(type);
         if (nmsBlock == null) {
             return false;
         }
@@ -251,8 +251,8 @@ public class DefaultNmsBlock extends NmsBlock {
         }
     }
 
-    public static net.minecraft.server.v1_7_R3.Block getNmsBlock(int type) {
-        return net.minecraft.server.v1_7_R3.Block.e(type);
+    public static net.minecraft.server.v1_7_R4.Block getNmsBlock(int type) {
+        return net.minecraft.server.v1_7_R4.Block.getById(type);
     }
 
     /**
@@ -466,7 +466,7 @@ public class DefaultNmsBlock extends NmsBlock {
     }
 
     public static boolean isValidBlockType(int type) throws NoClassDefFoundError {
-        return type == 0 || (type >= 1 && net.minecraft.server.v1_7_R3.Block.e(type) != null);
+        return type == 0 || (type >= 1 && net.minecraft.server.v1_7_R4.Block.getById(type) != null);
     }
 
 }

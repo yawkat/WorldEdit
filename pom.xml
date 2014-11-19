@@ -76,8 +76,8 @@
       <url>http://maven.sk89q.com/repo/</url>
     </repository>
     <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public</url>
+      <id>yawkat</id>
+      <url>http://mvn.yawk.at</url>
     </repository>
   </repositories>
   
@@ -126,21 +126,19 @@
       <optional>true</optional>
     </dependency>
     
-    <dependency> <!-- NMS blocks -->
-      <groupId>org.bukkit</groupId>
-      <artifactId>craftbukkit</artifactId>
-      <version>1.7.9-R0.1-SNAPSHOT</version>
-      <scope>compile</scope>
-      <type>jar</type>
-      <optional>true</optional>
-    </dependency>
-    
     <dependency> <!-- Unit tests -->
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <version>1.9.0-rc1</version>
       <scope>test</scope>
       <type>jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot</artifactId>
+      <version>1.7.10-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
 
   </dependencies>
